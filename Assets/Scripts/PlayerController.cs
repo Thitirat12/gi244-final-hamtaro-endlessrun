@@ -106,9 +106,9 @@ public class PlayerController : MonoBehaviour
         {
             
             hp--;
-            //Instantiate(explosionPrefab, expoPos, explosionPrefab.transform.rotation);
-            //Destroy(explosionPrefab,6);
-            explosionParticle.Play();
+            GameObject expoFx = Instantiate(explosionPrefab, expoPos, explosionPrefab.transform.rotation);
+            Destroy(expoFx,2);
+            //explosionParticle.Play();
             //Destroy(collision.gameObject);
             SpawnManagerPool.GetInstance().Return(collision.gameObject);
         }
