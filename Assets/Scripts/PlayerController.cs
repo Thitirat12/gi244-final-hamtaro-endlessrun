@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator playerAnim;
     private AudioSource playerAudio;
+    private UiManager uiManager;
 
     public bool gameOver = false;
 
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+        uiManager = GameObject.Find("UiManager").GetComponent<UiManager>();
         hp = 5;
     }
 
@@ -90,6 +92,7 @@ public class PlayerController : MonoBehaviour
             playerAnim.SetInteger("DeathType_int", 1);
             explosionParticle.Play(); 
             dirtParticle.Stop();
+            uiManager.OverScreen();
             //playerAudio.PlayOneShot(crashSfx);
         }
     }
